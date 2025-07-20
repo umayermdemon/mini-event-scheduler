@@ -26,7 +26,6 @@ const createEvent = async (req: Request, res: Response) => {
   });
 };
 
-// GET /events: Retrieve all events, sorted by date and time.
 const getEvents = async (req: Request, res: Response) => {
   const sortedEvents = [...Events].sort((a, b) => {
     return (
