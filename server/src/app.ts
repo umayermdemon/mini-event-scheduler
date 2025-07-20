@@ -1,6 +1,12 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
+import router from "./app/modules/event/event.route";
 const app = express();
-const port = 3000;
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/events", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("mini-event-scheduler server is running!");
