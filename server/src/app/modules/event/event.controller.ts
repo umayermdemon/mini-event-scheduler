@@ -56,8 +56,24 @@ const updateEventArchivedStatus = async (req: Request, res: Response) => {
   });
 };
 
+const deleteEvent = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const isExists = Events.find((event) => event.id === id);
+  if (!isExists) {
+    return res.status(404).json({ message: "Event not found." });
+  }
+  const updatedEvents = Events.filter((event) => event.id !== id);
+  Events.length = 0;
+  Events.push(...updatedEvents);
+  res.status(200).json({
+    message: "Event deleted successfully",
+    data: null,
+  });
+};
+
 export const eventController = {
   createEvent,
   getEvents,
   updateEventArchivedStatus,
+  deleteEvent,
 };
