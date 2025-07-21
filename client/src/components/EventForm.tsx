@@ -69,12 +69,14 @@ const EventForm = () => {
   };
 
   return (
-    <div className="rounded-b-2xl px-8 py-4" id="event-form">
+    <div className="rounded-b-2xl px-4 sm:px-8 py-4 w-full">
       <form
         onSubmit={handleSubmit}
-        className="max-w-2xl mx-auto"
+        className="max-w-2xl mx-auto w-full"
         autoComplete="off">
-        <h1 className="text-3xl font-bold mb-8">Add New Event</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-center sm:text-left">
+          Add New Event
+        </h1>
         <div className="mb-6">
           <label className="block font-semibold mb-2" htmlFor="title">
             Title
@@ -129,7 +131,7 @@ const EventForm = () => {
             name="notes"
             rows={4}
             placeholder="Additional notes"
-            className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200"
+            className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none"
             value={form.notes}
             onChange={handleChange}
           />
@@ -148,10 +150,10 @@ const EventForm = () => {
             readOnly
           />
         </div>
-        <div className="flex justify-end">
+        <div className="flex flex-col sm:flex-row justify-end gap-2">
           <button
             type="submit"
-            className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
+            className="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer w-full sm:w-auto">
             Save Event
           </button>
         </div>
