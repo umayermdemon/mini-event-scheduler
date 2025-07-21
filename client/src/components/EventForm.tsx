@@ -44,16 +44,16 @@ const EventForm = () => {
         console.log(data);
         if (data?.data) {
           toast.success(data?.message);
+          setForm({
+            title: "",
+            date: "",
+            time: "",
+            notes: "",
+            category: "",
+          });
         } else {
           toast.error(data?.message);
         }
-        setForm({
-          title: "",
-          date: "",
-          time: "",
-          notes: "",
-          category: "",
-        });
       })
       .catch((error) => {
         console.error("Error saving event:", error);
