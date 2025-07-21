@@ -45,6 +45,11 @@ const Navbar = ({ onNavToggle }: NavbarProps) => {
             className="text-gray-700 font-medium hover:text-blue-600 transition-colors hidden sm:inline cursor-pointer">
             My Events
           </a>
+          <a
+            onClick={() => onNavToggle("archived-events")}
+            className="text-gray-700 font-medium hover:text-blue-600 transition-colors hidden sm:inline cursor-pointer">
+            Archived Events
+          </a>
           {/* Notification bell */}
           <button className="ml-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
             <svg

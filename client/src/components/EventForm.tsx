@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { categorizeEvent } from "../utils/categorizeEvent";
+import { toast } from "sonner";
 
 const EventForm = () => {
   const [form, setForm] = useState({
@@ -31,7 +32,7 @@ const EventForm = () => {
       time: form.time,
       notes: form.notes,
     };
-    fetch("http://localhost:5000/events", {
+    fetch(`${import.meta.env.VITE_SERVER_API}/events`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,6 +42,11 @@ const EventForm = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        if (data?.data) {
+          toast.success(data?.message);
+        } else {
+          toast.error(data?.message);
+        }
         setForm({
           title: "",
           date: "",
