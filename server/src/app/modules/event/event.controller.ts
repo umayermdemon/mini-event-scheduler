@@ -10,6 +10,7 @@ const createEvent = async (req: Request, res: Response) => {
       .status(400)
       .json({ message: "Title, date, and time are required." });
   }
+
   const category = categorizeEvent(title, notes);
   const newEvent = {
     id: Date.now().toString(),
@@ -44,18 +45,20 @@ const getEvents = async (req: Request, res: Response) => {
 // Function to update the archived status of an event
 const updateEventArchivedStatus = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const eventIndex = Events.findIndex((event) => event.id === id);
-  console.log(eventIndex);
-  if (eventIndex === -1) {
+  const isExists = Events.find((event) => event.id === id);
+  if (!isExists) {
     return res.status(404).json({ message: "Event not found." });
   }
-  Events[eventIndex].archived = true;
+  isExists.archived = !isExists.archived;
   res.status(200).json({
-    message: "Event archived successfully",
-    data: Events[eventIndex],
+    message: `Event ${
+      isExists.archived ? "archived" : "unarchived"
+    } successfully`,
+    data: isExists,
   });
 };
 
+// Function to delete an event
 const deleteEvent = async (req: Request, res: Response) => {
   const { id } = req.params;
   const isExists = Events.find((event) => event.id === id);

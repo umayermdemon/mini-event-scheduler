@@ -3,7 +3,7 @@ import cors from "cors";
 import router from "./app/modules/event/event.route";
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.use("/events", router);
