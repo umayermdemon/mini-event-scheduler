@@ -41,7 +41,6 @@ const EventForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data?.data) {
           toast.success(data?.message);
           setForm({

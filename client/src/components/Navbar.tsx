@@ -9,8 +9,8 @@ const Navbar = ({ onNavToggle, activeView }: NavbarProps) => {
       <div className="flex flex-col sm:flex-row items-center justify-between max-w-7xl mx-auto w-full">
         {/* Logo and Title */}
         <div className="flex items-center space-x-2 mb-2 sm:mb-0">
-          <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-gray-200">
-            <svg
+          <span className="inline-flex items-center justify-center w-6 h-6 ">
+            {/* <svg
               className="w-4 h-4 text-gray-700"
               fill="none"
               stroke="currentColor"
@@ -27,7 +27,8 @@ const Navbar = ({ onNavToggle, activeView }: NavbarProps) => {
                 strokeWidth={2}
                 rx={2}
               />
-            </svg>
+            </svg> */}
+            <img src="/icon.png" alt="QuickSched Icon" />
           </span>
           <span className="font-semibold text-lg text-gray-800">
             QuickSched

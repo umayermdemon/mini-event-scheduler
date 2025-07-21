@@ -36,7 +36,6 @@ const EventList = ({ isArchived }: { isArchived: boolean }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setEvents((prev) => prev.filter((event) => event.id !== id));
         toast.success(data.message);
       })
